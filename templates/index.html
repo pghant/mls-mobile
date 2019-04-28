@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+  <title>{{ mls['mlsNumber'] }}</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js" async></script>
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.css">
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <h1 class="header">
+    {{ mls['mlsNumber'] }}
+    <br>
+    {{ mls['propertyType'] }}
+  </h1>
+
+  <div class="gallery info-section">
+    {% for pic in mls['pictures'] %}
+      <a href="{{ pic }}" data-caption="{{ loop.index }} / {{ loop.length }}">
+        <img src="{{ pic+'&w=64&h=48' }}">
+      </a>
+    {% endfor %}
+  </div>
+
+  <h2 class="list-price">
+    Price: {{ mls['listPrice'] }}
+  </h2>
+
+  <div class="info-section">
+    {% for addressPart in mls['address'] %}
+      <div>{{ addressPart }}</div>
+    {% endfor %}
+    <div class="directions"><span>Directions:</span> {{ mls['directions'] }}</div>
+  </div>
+
+  <div id="importnat-info" class="info-section">
+    <h3>Important Info</h3>
+    <div class="table striped-table">
+      {% for record in mls['importantInfo'] %}
+      <div class="row">
+        <div class="column-2">{{ record['name'] }}</div>
+        <div class="column-2">{{ record['value'] }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="remarks" class="info-section">
+    <h3>Remarks</h3>
+    {{ mls['remarks'] }}
+  </div>
+
+  <div id="basic-info" class="info-section">
+    <h3>Basic Info</h3>
+    <div class="table striped-table">
+      {% for record in mls['basicInfo'] %}
+      <div class="row">
+        <div class="column-2">{{ record['name'] }}</div>
+        <div class="column-2">{{ record['value'] }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="property-info" class="info-section">
+    <h3>Property Info</h3>
+    <div class="table striped-table">
+      {% for record in mls['propertyInfo'] %}
+      <div class="row">
+        <div class="column-2">{{ record['name'] }}</div>
+        <div class="column-2">{{ record['value'] }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="complex-info" class="info-section">
+    <h3>Complex Info</h3>
+    <div class="table striped-table">
+      {% for record in mls['complexInfo'] %}
+      <div class="row">
+        <div class="column-2">{{ record['name'] }}</div>
+        <div class="column-2">{{ record['value'] }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="features" class="info-section">
+    <h3>Features</h3>
+    <div class="table striped-table">
+      {% for record in mls['features'] %}
+      <div class="row">
+        <div class="column-2">{{ record['name'] }}</div>
+        <div class="column-2">{{ record['value'] }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="rooms" class="info-section rooms-section">
+    <h3>Rooms</h3>
+    <div class="table striped-table">
+      {% for record in mls['rooms'] %}
+      <div class="row">
+        <div class="column-2">{{ record['room'] }}</div>
+        <div class="column-2">
+          <div><span>Level:</span> {{ record['level'] }}</div>
+          <div><span>Size:</span> {{ record['size'] }}</div>
+          <div><span>Features:</span> {{ record['features'] }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="other-info" class="info-section">
+    <h3>Other Info</h3>
+    <div class="table striped-table">
+      {% for record in mls['other'] %}
+      <div class="row">
+        <div class="column-2">{{ record['name'] }}</div>
+        <div class="column-2">{{ record['value'] }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="tax-info" class="info-section">
+    <h3>Tax Info</h3>
+    <div class="table striped-table">
+      {% for record in mls['taxInfo'] %}
+      <div class="row">
+        <div class="column-2">{{ record['name'] }}</div>
+        <div class="column-2">{{ record['value'] }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      baguetteBox.run('.gallery', {
+        filter: /.+/
+      });
+    }; 
+  </script>
+  
+</body>
+</html>

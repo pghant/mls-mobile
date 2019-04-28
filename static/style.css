@@ -1,0 +1,40 @@
+body {
+  font-family: "helvetica", sans-serif;
+  margin-right: 1em;
+  margin-left: 1em;
+  line-height: 1.5em;
+}
+
+.header {
+  font-size: 1.8em;
+  line-height: 1.2em;
+}
+
+.info-section {
+  margin-bottom: 1em;
+}
+
+.directions {
+  margin-top: 1em;
+}
+
+.directions span {
+  font-weight: bold;
+}
+
+.rooms-section .row span {
+  font-weight: bold;
+}
+
+.table .row {
+  display: flex;
+  padding: 0.4em;
+}
+
+.table .row .column-2 {
+  flex-basis: 50%;
+}
+
+.striped-table .row:nth-child(odd) {
+  background-color: #eee;
+}
