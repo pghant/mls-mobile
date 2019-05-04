@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>{{ mls['mlsNumber'] }}</title>
+  <title>MLS {{ mls_num }} - {{ ', '.join(mls['address'][:2]) }}</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js" async></script>
   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.css">
   <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">

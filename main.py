@@ -17,7 +17,7 @@ def root():
   mls_page = MLS(mls_url)
   mls_info = mls_page.info()
 
-  return render_template('index.html', mls=mls_info)
+  return render_template('index.html', mls=mls_info, mls_num=mls_page.mls_num)
 
 if __name__ == '__main__':
   app.run(host='127.0.0.1', port=8080, debug=True)
